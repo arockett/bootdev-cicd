@@ -1,7 +1,6 @@
 package auth
 
 import (
-	"fmt"
 	"net/http"
 	"testing"
 )
@@ -50,7 +49,7 @@ func TestGetAPIKey(t *testing.T) {
 				t.Fatalf("Did not expect error")
 			}
 			if tc.want != got {
-				t.Fatalf(fmt.Sprintf("Expected %s, got %s", tc.want, got))
+				t.Fatalf("Expected %s, got %s", tc.want, got)
 			}
 		})
 	}
