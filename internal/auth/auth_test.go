@@ -1,7 +1,6 @@
 package auth
 
 import (
-	"fmt"
 	"net/http"
 	"testing"
 )
@@ -28,14 +27,14 @@ func TestGetAPIKey(t *testing.T) {
 			input: http.Header{
 				"Authorization": []string{"authToken"},
 			},
-			want: "",
+			want:  "",
 			error: true,
 		},
 		"malformed auth header 2": {
 			input: http.Header{
 				"Authorization": []string{"Bearer token"},
 			},
-			want: "",
+			want:  "",
 			error: true,
 		},
 	}
@@ -50,7 +49,7 @@ func TestGetAPIKey(t *testing.T) {
 				t.Fatalf("Did not expect error")
 			}
 			if tc.want != got {
-				t.Fatalf(fmt.Sprintf("Expected %s, got %s", tc.want, got))
+				t.Fatalf("Expected %s, got %s", tc.want, got)
 			}
 		})
 	}
